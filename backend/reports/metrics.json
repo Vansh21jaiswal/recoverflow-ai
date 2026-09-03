@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-09-02T10:56:29.294570+00:00",
+  "dataset": {
+    "csv_path": "/Users/Vansh/Desktop/recoverflow-ai/backend/reports/eval_dataset.csv",
+    "n_rows": 5200,
+    "n_positive": 219,
+    "positive_rate": 0.04211538461538462,
+    "feature_columns": [
+      "payment_status",
+      "failure_reason",
+      "customer_segment",
+      "payment_method",
+      "applied_recovery_action",
+      "attempt_count",
+      "previous_failed_payments",
+      "previous_successful_orders",
+      "cart_value",
+      "time_on_checkout_seconds",
+      "risk_score"
+    ],
+    "excluded_potential_leakage": [
+      "best_recovery_action",
+      "recovery_probability",
+      "checkout_id"
+    ]
+  },
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "stratify": true,
+    "n_train": 4160,
+    "n_test": 1040
+  },
+  "artifacts": {
+    "baseline_model": "/Users/Vansh/Desktop/recoverflow-ai/backend/models/artifacts/baseline_model.pkl",
+    "baseline_model_calibrated": "/Users/Vansh/Desktop/recoverflow-ai/backend/models/artifacts/baseline_model_calibrated.pkl"
+  },
+  "models": {
+    "baseline_model": {
+      "type": "Pipeline",
+      "metrics": {
+        "roc_auc": 0.992926250456371,
+        "accuracy": 0.9817307692307692,
+        "precision": 0.7659574468085106,
+        "recall": 0.8181818181818182,
+        "brier": 0.012618568928626091
+      }
+    },
+    "baseline_model_calibrated": {
+      "type": "CalibratedClassifierCV",
+      "metrics": {
+        "roc_auc": 0.9925383351588171,
+        "accuracy": 0.9836538461538461,
+        "precision": 0.9354838709677419,
+        "recall": 0.6590909090909091,
+        "brier": 0.016165334481109767
+      }
+    }
+  },
+  "test_expected_recovery_value_calibrated": {
+    "mean": 71.32550010950993,
+    "median": 7.080396376001719,
+    "sum": 74178.52011389034
+  },
+  "feature_importance_top": [
+    {
+      "feature": "applied_recovery_action",
+      "importance": 0.24911007667031762
+    },
+    {
+      "feature": "cart_value",
+      "importance": 0.01067052300109532
+    },
+    {
+      "feature": "risk_score",
+      "importance": 0.008345883534136553
+    },
+    {
+      "feature": "time_on_checkout_seconds",
+      "importance": 0.007438846294268026
+    },
+    {
+      "feature": "previous_successful_orders",
+      "importance": 0.004175794085432602
+    },
+    {
+      "feature": "payment_method",
+      "importance": 0.0012036783497627046
+    },
+    {
+      "feature": "customer_segment",
+      "importance": 0.0008927756480467397
+    },
+    {
+      "feature": "payment_status",
+      "importance": 0.000855695509309945
+    },
+    {
+      "feature": "previous_failed_payments",
+      "importance": 0.0006503285870755604
+    },
+    {
+      "feature": "failure_reason",
+      "importance": 0.00030805038335159074
+    },
+    {
+      "feature": "attempt_count",
+      "importance": 0.00020821924059881425
+    }
+  ],
+  "live_api_uses_ml": false,
+  "charts": [
+    "charts/roc_curve_comparison.png",
+    "charts/calibration_curve_comparison.png",
+    "charts/predicted_probability_distribution.png",
+    "charts/action_distribution.png",
+    "charts/estimated_recovery_value_distribution.png",
+    "charts/feature_importance.png"
+  ]
+}
