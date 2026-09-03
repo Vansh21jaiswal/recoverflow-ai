@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"dashboard.tsx -> ../components/RecoveryInsights":{"id":"dashboard.tsx -> ../components/RecoveryInsights","files":["static/chunks/components_RecoveryInsights_tsx.js"]}}

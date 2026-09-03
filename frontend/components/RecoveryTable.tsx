@@ -19,11 +19,11 @@ export default function RecoveryTable({ items }: { items: any[] }) {
       if (statusFilter !== 'All' && item.payment_status?.toLowerCase() !== statusFilter.toLowerCase()) return false
       if (actionFilter !== 'All Actions') {
         const actionMap: any = {
-          'Send Reminder': 'send_reminder',
+          'Send Reminder': 'send_payment_reminder',
           'Retry Payment': 'retry_payment',
           'Switch Payment Method': 'switch_payment_method',
-          'Offer Small Incentive': 'offer_small_incentive',
-          'Human Review': 'human_review',
+          'Offer Small Incentive': 'offer_limited_discount',
+          'Human Review': 'escalate_for_review',
         }
         const expected = actionMap[actionFilter]
         if (item.recommended_action !== expected) return false
@@ -73,12 +73,14 @@ export default function RecoveryTable({ items }: { items: any[] }) {
   }
 
   const ACTION_LABELS: Record<string, string> = {
-    send_reminder: 'Send Reminder',
+    send_payment_reminder: 'Send Reminder',
     retry_payment: 'Retry Payment',
     switch_payment_method: 'Switch Method',
-    offer_small_incentive: 'Offer Incentive',
-    human_review: 'Human Review',
+    offer_limited_discount: 'Offer Incentive',
+    escalate_for_review: 'Human Review',
     no_action: 'No Action',
+    create_payment_link: 'Create Link',
+    send_personalized_nudge: 'Send Nudge',
   }
 
   // Sort indicator: only shown on active column

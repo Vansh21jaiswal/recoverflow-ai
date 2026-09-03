@@ -26,25 +26,3 @@ yarn-error.log*
 
 # Mac
 .DS_Store
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.venv/
-
-# Environment variables
-.env
-.env.local
-
-# Node / Next.js
-frontend/node_modules/
-frontend/.next/
-frontend/out/
-
-# OS files
-.DS_Store
-
-# Database (optional – don't upload local database)
-*.db

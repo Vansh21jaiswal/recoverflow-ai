@@ -1,0 +1,36 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/api/proxy/[...path]";
+exports.ids = ["pages/api/proxy/[...path]"];
+exports.modules = {
+
+/***/ "(api)/./pages/api/proxy/[...path].ts":
+/*!**************************************!*\
+  !*** ./pages/api/proxy/[...path].ts ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\nlet BACKEND = process.env.BACKEND_URL || \"http://127.0.0.1:8000\";\n// Prevent proxy loop if environment variable was misconfigured\nif (BACKEND.includes(\"/api/proxy\") || BACKEND.includes(\"localhost:3000\")) {\n    BACKEND = \"http://127.0.0.1:8000\";\n}\nasync function handler(req, res) {\n    try {\n        const prefix = \"/api/proxy\";\n        const fullUrl = req.url || \"\";\n        const tail = fullUrl.startsWith(prefix) ? fullUrl.slice(prefix.length) : fullUrl;\n        const target = `${BACKEND}${tail}`;\n        console.log(`[Proxy] Forwarding ${req.method} ${target}`);\n        const fetchOptions = {\n            method: req.method,\n            headers: {\n                \"Accept\": \"application/json\"\n            }\n        };\n        if (req.method !== \"GET\" && req.method !== \"HEAD\") {\n            fetchOptions.body = JSON.stringify(req.body);\n            fetchOptions.headers = {\n                ...fetchOptions.headers,\n                \"Content-Type\": \"application/json\"\n            };\n        }\n        const r = await fetch(target, fetchOptions);\n        if (!r.ok) {\n            console.error(`[Proxy] Backend returned ${r.status} for ${target}`);\n        }\n        const text = await r.text();\n        res.status(r.status);\n        const ct = r.headers.get(\"content-type\");\n        if (ct) res.setHeader(\"content-type\", ct);\n        res.send(text);\n    } catch (err) {\n        console.error(`[Proxy] Error forwarding to backend:`, err);\n        res.status(500).json({\n            error: err.message\n        });\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvcHJveHkvWy4uLnBhdGhdLnRzLmpzIiwibWFwcGluZ3MiOiI7Ozs7QUFFQSxJQUFJQSxVQUFVQyxRQUFRQyxJQUFJQyxlQUFlO0FBQ3pDLCtEQUErRDtBQUMvRCxJQUFJSCxRQUFRSSxTQUFTLGlCQUFpQkosUUFBUUksU0FBUyxtQkFBbUI7SUFDdEVKLFVBQVU7QUFDZDtBQUVlLGVBQWVLLFFBQVFDLEdBQW1CLEVBQUVDLEdBQW9CO0lBQzdFLElBQUk7UUFDRixNQUFNQyxTQUFTO1FBQ2YsTUFBTUMsVUFBVUgsSUFBSUksT0FBTztRQUMzQixNQUFNQyxPQUFPRixRQUFRRyxXQUFXSixVQUFVQyxRQUFRSSxNQUFNTCxPQUFPTSxVQUFVTDtRQUN6RSxNQUFNTSxTQUFTLENBQUMsRUFBRWYsUUFBUSxFQUFFVyxLQUFLLENBQUM7UUFFbENLLFFBQVFDLElBQUksQ0FBQyxtQkFBbUIsRUFBRVgsSUFBSVksT0FBTyxDQUFDLEVBQUVILE9BQU8sQ0FBQztRQUV4RCxNQUFNSSxlQUE0QjtZQUNoQ0QsUUFBUVosSUFBSVk7WUFDWkUsU0FBUztnQkFDUCxVQUFVO1lBQ1o7UUFDRjtRQUVBLElBQUlkLElBQUlZLFdBQVcsU0FBU1osSUFBSVksV0FBVyxRQUFRO1lBQ2pEQyxhQUFhRSxPQUFPQyxLQUFLQyxVQUFVakIsSUFBSWU7WUFDdkNGLGFBQWFDLFVBQVU7Z0JBQUUsR0FBR0QsYUFBYUMsT0FBTztnQkFBRSxnQkFBZ0I7WUFBbUI7UUFDdkY7UUFFQSxNQUFNSSxJQUFJLE1BQU1DLE1BQU1WLFFBQVFJO1FBRTlCLElBQUksQ0FBQ0ssRUFBRUUsSUFBSTtZQUNQVixRQUFRVyxNQUFNLENBQUMseUJBQXlCLEVBQUVILEVBQUVJLE9BQU8sS0FBSyxFQUFFYixPQUFPLENBQUM7UUFDdEU7UUFFQSxNQUFNYyxPQUFPLE1BQU1MLEVBQUVLO1FBQ3JCdEIsSUFBSXFCLE9BQU9KLEVBQUVJO1FBQ2IsTUFBTUUsS0FBS04sRUFBRUosUUFBUVcsSUFBSTtRQUN6QixJQUFJRCxJQUFJdkIsSUFBSXlCLFVBQVUsZ0JBQWdCRjtRQUN0Q3ZCLElBQUkwQixLQUFLSjtJQUNYLEVBQUUsT0FBT0ssS0FBVTtRQUNqQmxCLFFBQVFXLE1BQU0sQ0FBQyxvQ0FBb0MsQ0FBQyxFQUFFTztRQUN0RDNCLElBQUlxQixPQUFPLEtBQUtPLEtBQUs7WUFBRVIsT0FBT08sSUFBSUU7UUFBUTtJQUM1QztBQUNGIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vcmVjb3ZlcmZsb3ctZnJvbnRlbmQvLi9wYWdlcy9hcGkvcHJveHkvWy4uLnBhdGhdLnRzP2JkNWUiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHR5cGUgeyBOZXh0QXBpUmVxdWVzdCwgTmV4dEFwaVJlc3BvbnNlIH0gZnJvbSAnbmV4dCdcblxubGV0IEJBQ0tFTkQgPSBwcm9jZXNzLmVudi5CQUNLRU5EX1VSTCB8fCAnaHR0cDovLzEyNy4wLjAuMTo4MDAwJ1xuLy8gUHJldmVudCBwcm94eSBsb29wIGlmIGVudmlyb25tZW50IHZhcmlhYmxlIHdhcyBtaXNjb25maWd1cmVkXG5pZiAoQkFDS0VORC5pbmNsdWRlcygnL2FwaS9wcm94eScpIHx8IEJBQ0tFTkQuaW5jbHVkZXMoJ2xvY2FsaG9zdDozMDAwJykpIHtcbiAgICBCQUNLRU5EID0gJ2h0dHA6Ly8xMjcuMC4wLjE6ODAwMCdcbn1cblxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlcihyZXE6IE5leHRBcGlSZXF1ZXN0LCByZXM6IE5leHRBcGlSZXNwb25zZSkge1xuICB0cnkge1xuICAgIGNvbnN0IHByZWZpeCA9ICcvYXBpL3Byb3h5J1xuICAgIGNvbnN0IGZ1bGxVcmwgPSByZXEudXJsIHx8ICcnXG4gICAgY29uc3QgdGFpbCA9IGZ1bGxVcmwuc3RhcnRzV2l0aChwcmVmaXgpID8gZnVsbFVybC5zbGljZShwcmVmaXgubGVuZ3RoKSA6IGZ1bGxVcmxcbiAgICBjb25zdCB0YXJnZXQgPSBgJHtCQUNLRU5EfSR7dGFpbH1gXG5cbiAgICBjb25zb2xlLmxvZyhgW1Byb3h5XSBGb3J3YXJkaW5nICR7cmVxLm1ldGhvZH0gJHt0YXJnZXR9YClcblxuICAgIGNvbnN0IGZldGNoT3B0aW9uczogUmVxdWVzdEluaXQgPSB7XG4gICAgICBtZXRob2Q6IHJlcS5tZXRob2QsXG4gICAgICBoZWFkZXJzOiB7XG4gICAgICAgICdBY2NlcHQnOiAnYXBwbGljYXRpb24vanNvbicsXG4gICAgICB9LFxuICAgIH1cblxuICAgIGlmIChyZXEubWV0aG9kICE9PSAnR0VUJyAmJiByZXEubWV0aG9kICE9PSAnSEVBRCcpIHtcbiAgICAgIGZldGNoT3B0aW9ucy5ib2R5ID0gSlNPTi5zdHJpbmdpZnkocmVxLmJvZHkpXG4gICAgICBmZXRjaE9wdGlvbnMuaGVhZGVycyA9IHsgLi4uZmV0Y2hPcHRpb25zLmhlYWRlcnMsICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfVxuICAgIH1cblxuICAgIGNvbnN0IHIgPSBhd2FpdCBmZXRjaCh0YXJnZXQsIGZldGNoT3B0aW9ucylcbiAgICBcbiAgICBpZiAoIXIub2spIHtcbiAgICAgICAgY29uc29sZS5lcnJvcihgW1Byb3h5XSBCYWNrZW5kIHJldHVybmVkICR7ci5zdGF0dXN9IGZvciAke3RhcmdldH1gKVxuICAgIH1cblxuICAgIGNvbnN0IHRleHQgPSBhd2FpdCByLnRleHQoKVxuICAgIHJlcy5zdGF0dXMoci5zdGF0dXMpXG4gICAgY29uc3QgY3QgPSByLmhlYWRlcnMuZ2V0KCdjb250ZW50LXR5cGUnKVxuICAgIGlmIChjdCkgcmVzLnNldEhlYWRlcignY29udGVudC10eXBlJywgY3QpXG4gICAgcmVzLnNlbmQodGV4dClcbiAgfSBjYXRjaCAoZXJyOiBhbnkpIHtcbiAgICBjb25zb2xlLmVycm9yKGBbUHJveHldIEVycm9yIGZvcndhcmRpbmcgdG8gYmFja2VuZDpgLCBlcnIpXG4gICAgcmVzLnN0YXR1cyg1MDApLmpzb24oeyBlcnJvcjogZXJyLm1lc3NhZ2UgfSlcbiAgfVxufVxuIl0sIm5hbWVzIjpbIkJBQ0tFTkQiLCJwcm9jZXNzIiwiZW52IiwiQkFDS0VORF9VUkwiLCJpbmNsdWRlcyIsImhhbmRsZXIiLCJyZXEiLCJyZXMiLCJwcmVmaXgiLCJmdWxsVXJsIiwidXJsIiwidGFpbCIsInN0YXJ0c1dpdGgiLCJzbGljZSIsImxlbmd0aCIsInRhcmdldCIsImNvbnNvbGUiLCJsb2ciLCJtZXRob2QiLCJmZXRjaE9wdGlvbnMiLCJoZWFkZXJzIiwiYm9keSIsIkpTT04iLCJzdHJpbmdpZnkiLCJyIiwiZmV0Y2giLCJvayIsImVycm9yIiwic3RhdHVzIiwidGV4dCIsImN0IiwiZ2V0Iiwic2V0SGVhZGVyIiwic2VuZCIsImVyciIsImpzb24iLCJtZXNzYWdlIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./pages/api/proxy/[...path].ts\n");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../../webpack-api-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/proxy/[...path].ts"));
+module.exports = __webpack_exports__;
+
+})();
