@@ -9,9 +9,9 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="RecoverFlow AI Backend")
 
-app.include_router(health_router)
-app.include_router(checkouts_router)
-app.include_router(recovery_router)
+app.include_router(health_router, prefix="/api")
+app.include_router(checkouts_router, prefix="/api")
+app.include_router(recovery_router, prefix="/api")
 
 
 @app.get("/", include_in_schema=False)

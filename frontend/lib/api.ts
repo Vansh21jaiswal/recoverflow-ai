@@ -1,7 +1,7 @@
 const isServer = typeof window === 'undefined'
-const BACKEND_URL = isServer 
-  ? (process.env.BACKEND_URL || 'http://127.0.0.1:8000') 
-  : '/api/proxy'
+const BACKEND_URL = isServer
+  ? (process.env.BACKEND_URL || 'http://127.0.0.1:8000/api')
+  : '/api'
 
 async function fetchJson(path: string) {
   const url = `${BACKEND_URL}${path}`
