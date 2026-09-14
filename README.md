@@ -184,7 +184,7 @@ python3 export_dataset.py      # Exports dataset for ML training
 
 ## Demo Walkthrough
 
-1. Open **recoverflow-hy30cqt20-vanshjaiswal116-6633.vercel.app** — landing page.
+1. [Open RecoveryFlow AI](https://recoverflow-ai-dusky.vercel.app)
 2. Observe the **Revenue Funnel** and **Recovery Action Distribution** chart.
 3. Check the **Key Metrics** panel — note the Decision Engine split (Rule-Based vs ML-Assisted).
 4. In the **Recovery Queue**, sort by **Expected ↓** to see the highest-value cases first.
