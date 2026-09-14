@@ -184,15 +184,14 @@ python3 export_dataset.py      # Exports dataset for ML training
 
 ## Demo Walkthrough
 
-1. Open **http://localhost:3000** — landing page.
-2. Click **"View Recovery Dashboard"** → http://localhost:3000/dashboard.
-3. Observe the **Revenue Funnel** and **Recovery Action Distribution** chart.
-4. Check the **Key Metrics** panel — note the Decision Engine split (Rule-Based vs ML-Assisted).
-5. In the **Recovery Queue**, sort by **Expected ↓** to see the highest-value cases first.
-6. Filter by **High** priority to focus on cases with expected recovery ≥ $500.
-7. Click any row to open the **Case Detail** view.
-8. Review the **Recommended Recovery Action**, **Recovery Probability**, **Decision Confidence**, **Decision Factors**, and **Decision Engine Signals**.
-9. Click **← Back to Dashboard** to return.
+1. Open **recoverflow-hy30cqt20-vanshjaiswal116-6633.vercel.app** — landing page.
+2. Observe the **Revenue Funnel** and **Recovery Action Distribution** chart.
+3. Check the **Key Metrics** panel — note the Decision Engine split (Rule-Based vs ML-Assisted).
+4. In the **Recovery Queue**, sort by **Expected ↓** to see the highest-value cases first.
+5. Filter by **High** priority to focus on cases with expected recovery ≥ $500.
+6. Click any row to open the **Case Detail** view.
+7. Review the **Recommended Recovery Action**, **Recovery Probability**, **Decision Confidence**, **Decision Factors**, and **Decision Engine Signals**.
+8. Click **← Back to Dashboard** to return.
 
 ---
 
